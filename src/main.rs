@@ -144,16 +144,6 @@ fn think(thunk: Thunk) -> Result<RuntimeValue> {
     }
 }
 
-fn make_err(str: &str) -> Result<Data> {
-    let mut buf = [0u8; 30];
-    let mut out: &mut [u8] = &mut buf;
-    out.write_all(str.as_bytes()).unwrap();
-    Err(Data::Ref(Ref::Blob(BlobName::Literal((
-        buf,
-        str.as_bytes().len() as u8,
-    )))))
-}
-
 // Execute an Encode, producing Data.
 // The Thunk is thinked until no more thoughts arrive (i.e. it's Data).
 // Then, if requested, the Data accessibility is adjusted.
