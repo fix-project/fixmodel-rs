@@ -1,4 +1,4 @@
-use std::{io::Write, marker::PhantomData};
+use std::marker::PhantomData;
 
 // A physical "object" is either a Blob (an immutable vector of bytes)
 // or a Tree (an immutable vector of "Handles", defined below).
