@@ -170,7 +170,6 @@ fn execute(e: Encode) -> Result<Data> {
 
 // Evaluate a Handle to a Value (a data structure with no accessible Encodes).
 // Any Encodes are executed, and accessible Trees are recursed into. Everything else is self-evaluating.
-// The result is a Value: no accessible Encodes.
 fn eval(h: Handle) -> Result<Value> {
     Ok(match h {
         Handle::Encode(e) => eval(Handle::Data(execute(e)?))?,
